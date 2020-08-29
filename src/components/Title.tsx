@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { Text } from "./theme";
 
 interface TitleProps {
   label: string;
@@ -8,7 +9,7 @@ interface TitleProps {
 const Title = ({ label }: TitleProps) => {
   return (
     <View>
-      <Text style={{ fontSize: 30 }}>{label}</Text>
+      <Text variant="title">{label}</Text>
     </View>
   );
 };

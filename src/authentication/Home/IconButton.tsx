@@ -1,40 +1,43 @@
-import { FontAwesome as Icon } from "@expo/vector-icons";
-import React from "react";
-import { Text, View } from "react-native";
+import React, { ReactNode } from "react";
+import { View } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
+import { Box, Text } from "../../components";
 
 interface IconButtonProps {
-  icon: string;
+  icon: ReactNode;
   label: string;
   onPress: () => void;
 }
 
 const IconButton = ({ icon, label, onPress }: IconButtonProps) => {
   return (
-    <RectButton
-      style={{
-        backgroundColor: "white",
-        height: 40,
-        elevation: 1,
-        borderRadius: 5,
-      }}
-      {...onPress}
-    >
-      <View
+    <Box paddingVertical="s" paddingHorizontal="xl">
+      <RectButton
         style={{
-          flexDirection: "row",
+          backgroundColor: "white",
+          height: 40,
+          elevation: 1,
+          borderRadius: 5,
           justifyContent: "center",
-          alignItems: "center",
         }}
+        {...onPress}
       >
-        <View style={{ paddingHorizontal: 20, paddingTop: 5 }}>
-          <Icon name={icon} size={30} color="black" />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box paddingHorizontal="m" paddingVertical="s">
+            {icon}
+          </Box>
+          <Box>
+            <Text variant="button">{label}</Text>
+          </Box>
         </View>
-        <View>
-          <Text style={{ fontSize: 15 }}>{label}</Text>
-        </View>
-      </View>
-    </RectButton>
+      </RectButton>
+    </Box>
   );
 };
 

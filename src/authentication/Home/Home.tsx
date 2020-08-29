@@ -1,76 +1,59 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Title from "../../components";
+import { View } from "react-native";
+import { Facebook, Google, Mail } from "../../assets";
+import { Box, Text, Title } from "../../components";
 import IconButton from "./IconButton";
 
 interface HomeProps {}
 
-const styles = StyleSheet.create({
-  titleBox: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingVertical: 20,
-  },
-  titleMain: {
-    fontSize: 30,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
-
 const Home = ({}: HomeProps) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
+    <Box
+      backgroundColor="lightGreen"
+      flex={1}
+      flexDirection="column"
+      justifyContent="space-between"
     >
-      <View style={styles.titleBox}>
+      <Box justifyContent="center" alignItems="center" paddingVertical="m">
         <Title label="Medium" />
-      </View>
+      </Box>
       <View>
+        <Box>
+          <Text variant="subTitleA">Smart stories for </Text>
+          <Text variant="subTitleA">curious people.</Text>
+        </Box>
         <View>
-          <Text style={styles.titleMain}>Smart stories for </Text>
-          <Text style={styles.titleMain}>curious people.</Text>
+          <IconButton
+            label={"Sign up with Google"}
+            icon={<Google />}
+            onPress={() => {}}
+          />
+
+          <IconButton
+            label={"Sign up with Facebook"}
+            icon={<Facebook />}
+            onPress={() => {}}
+          />
+
+          <IconButton
+            label={"Sign up with Email"}
+            icon={<Mail />}
+            onPress={() => {}}
+          />
         </View>
         <View>
-          <View style={{ padding: 10 }}>
-            <IconButton
-              label={"Sign up with Google"}
-              icon="google"
-              onPress={() => {}}
-            />
-          </View>
-          <View style={{ padding: 10 }}>
-            <IconButton
-              label={"Sign up with Facebook"}
-              icon="facebook"
-              onPress={() => {}}
-            />
-          </View>
-          <View style={{ padding: 10 }}>
-            <IconButton
-              label={"Sign up with Email"}
-              icon="mail"
-              onPress={() => {}}
-            />
-          </View>
-        </View>
-        <View>
-          <Text style={{ textAlign: "center" }}>
-            Already have an account? Sign In
+          <Text textAlign="center">
+            Already have an account? <Text variant="link">Sign In</Text>
           </Text>
         </View>
       </View>
-      <View>
-        <Text style={{ textAlign: "center" }}>
+      <Box marginVertical="m">
+        <Text textAlign="center">
           By creating an account, I accept Medium's
         </Text>
-        <Text style={{ textAlign: "center" }}>Terms of Service</Text>
-      </View>
-    </View>
+        <Text textAlign="center">Terms of Service</Text>
+      </Box>
+    </Box>
   );
 };
 
