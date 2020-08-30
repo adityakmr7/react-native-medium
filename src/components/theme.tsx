@@ -13,8 +13,7 @@ export const theme = createTheme({
   colors: {
     white: "#FFF",
     black: "#111",
-    darkGray: "#333",
-    lightGray: "#EEE",
+    lightGray: "#78909C",
     greenish: "#029E74",
     lightGreen: "#f0fff9",
   },
@@ -28,6 +27,10 @@ export const theme = createTheme({
       fontSize: 30,
       fontWeight: "bold",
       textAlign: "center",
+    },
+    subTextFooter: {
+      fontSize: 15,
+      color: "lightGray",
     },
     button: {
       fontSize: 15,

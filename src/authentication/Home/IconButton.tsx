@@ -11,7 +11,7 @@ interface IconButtonProps {
 
 const IconButton = ({ icon, label, onPress }: IconButtonProps) => {
   return (
-    <Box paddingVertical="s" paddingHorizontal="xl">
+    <Box paddingVertical="s" paddingHorizontal="xxl">
       <RectButton
         style={{
           backgroundColor: "white",
@@ -25,14 +25,13 @@ const IconButton = ({ icon, label, onPress }: IconButtonProps) => {
         <View
           style={{
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
+            marginLeft: 30,
           }}
         >
-          <Box paddingHorizontal="m" paddingVertical="s">
-            {icon}
-          </Box>
-          <Box>
+          <Box flex={1}>{icon}</Box>
+          <Box flex={3}>
             <Text variant="button">{label}</Text>
           </Box>
         </View>
