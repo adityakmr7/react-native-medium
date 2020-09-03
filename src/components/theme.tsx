@@ -9,16 +9,27 @@ export const theme = createTheme({
     l: 24,
     xl: 32,
     xxl: 40,
+    xxxl: 80,
+  },
+  borderRadii: {
+    s: 2,
+    m: 16,
   },
   colors: {
     white: "#FFF",
-    black: "#111",
+    lightBlack: "#292929",
     lightGray: "#78909C",
     greenish: "#029E74",
     lightGreen: "#f0fff9",
+    gray: "#37474F",
   },
   breakpoints: {},
   textVariants: {
+    webTitle: {
+      fontSize: 80,
+      fontWeight: "bold",
+      colors: "lightBlack",
+    },
     title: {
       fontSize: 30,
       fontWeight: "bold",
@@ -34,6 +45,8 @@ export const theme = createTheme({
     },
     button: {
       fontSize: 15,
+      fontWeight: 400,
+      color: "gray",
     },
 
     link: {

@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { Facebook, Google, Mail } from "../../../assets";
 import { Box, Text, Title } from "../../../components";
-import IconButton from "../IconButton";
+import IconButton from "../components/IconButton";
 
 interface HomeContentProps {}
 

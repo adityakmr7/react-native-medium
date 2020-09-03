@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { View } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
-import { Box, Text } from "../../components";
+import { Box, Text } from "../../../components";
 
 interface IconButtonProps {
   icon: ReactNode;
