@@ -1,9 +1,11 @@
+import { useTheme } from "@react-navigation/native";
 import React from "react";
 import { Platform } from "react-native";
-import { Box, Text, Title } from "../../components";
+import { Box, Footer, Text, Title } from "../../components";
+import CircleButton from "./components/CircleButton";
 import NavButton from "./components/NavButton";
-import RoundedButton from "./components/RoundedButton";
 import StartButton from "./components/StartButton";
+import TagButton from "./components/TagButton";
 import HomeContent from "./native/HomeContent";
 interface HomeProps {}
 const tags = [
@@ -27,7 +29,15 @@ const tags2 = [
   { id: 8, title: "Programming" },
 ];
 
+const info = [
+  { id: 1, label: "World-class publications.", icon: "check" },
+  { id: 2, label: "Undiscovered voices.", icon: "check" },
+  { id: 3, label: "Topics you love.", icon: "check" },
+  { id: 4, label: "All on Medium, all for you.", icon: "check" },
+];
+
 const Home = ({}: HomeProps) => {
+  const theme = useTheme();
   if (Platform.OS !== "web") {
     return <HomeContent />;
   } else {
@@ -44,9 +54,13 @@ const Home = ({}: HomeProps) => {
               <Title label="Medium" />
             </Box>
             <Box flexDirection="row">
-              <NavButton label={"SubScribe"} onPress={() => {}} />
-              <NavButton label={"Write"} onPress={() => {}} />
-              <NavButton label={"SignIn"} onPress={() => {}} />
+              <NavButton
+                variant="button"
+                label={"SubScribe"}
+                onPress={() => {}}
+              />
+              <NavButton variant="button" label={"Write"} onPress={() => {}} />
+              <NavButton variant="button" label={"SignIn"} onPress={() => {}} />
               <Box paddingTop="s">
                 <StartButton
                   label={"Get Started"}
@@ -79,10 +93,10 @@ const Home = ({}: HomeProps) => {
           {tags.map((item, _) => {
             return (
               <Box paddingHorizontal="s">
-                <RoundedButton
+                <TagButton
                   key={item.id}
                   label={item.title}
-                  icon="#"
+                  icon="hash"
                   onPress={() => {}}
                 />
               </Box>
@@ -93,10 +107,10 @@ const Home = ({}: HomeProps) => {
           {tags2.map((item, _) => {
             return (
               <Box paddingHorizontal="s">
-                <RoundedButton
+                <TagButton
                   key={item.id}
                   label={item.title}
-                  icon="#"
+                  icon="hash"
                   onPress={() => {}}
                 />
               </Box>
@@ -116,6 +130,83 @@ const Home = ({}: HomeProps) => {
             </Text>
           </Box>
         </Box>
+
+        <Box
+          marginTop="m"
+          flexDirection="row"
+          style={{ marginHorizontal: 200 }}
+          justifyContent="space-between"
+        >
+          {info.map((item) => {
+            return (
+              <Box flexDirection="row" alignItems="center">
+                <CircleButton color={"greenish"} icon={"check"} />
+                <Text>{item.label}</Text>
+              </Box>
+            );
+          })}
+        </Box>
+
+        <Box paddingTop="xxl" style={{ marginHorizontal: 200 }}>
+          <Box>
+            <Text variant="webTitle">No ads. No problems.</Text>
+            <Text variant="button">
+              Your privacy stays yours. We don’t sell your data or target you
+              with ads. Ever.
+            </Text>
+          </Box>
+          <Box flexDirection="row" justifyContent="space-evenly">
+            <Box paddingTop="xxl" alignItems="flex-end">
+              <StartButton onPress={() => {}} />
+            </Box>
+            <Box paddingTop="xxl">
+              <Text variant="subTitleA" fontSize={15}>
+                We do things differently.
+              </Text>
+              <Text variant="subTextFooter">
+                Medium is not like any other platform on
+              </Text>
+            </Box>
+          </Box>
+          <Box paddingTop="xxxl" alignItems="center" justifyContent="center">
+            <Box backgroundColor="lightBlack" height={2} width={200} />
+          </Box>
+          <Box paddingTop="xxxl" flexDirection="row">
+            <Box>
+              <Text variant="webTitle">120 million</Text>
+              <Text variant="webTitle">curious readers </Text>
+              <Text variant="webTitle">and growing.</Text>
+            </Box>
+          </Box>
+          <Box
+            paddingVertical="xxl"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Text>One Subscription. Unlimited Ideas.</Text>
+            <Box justifyContent="center" alignItems="center">
+              <Text variant="subTextFooter">
+                Read unlimited stories with an optional subscription of
+                $5/month.
+              </Text>
+
+              <Text variant="subTextFooter">
+                If it's not for you, cancel anytime.
+              </Text>
+            </Box>
+          </Box>
+          <Box paddingTop="xxxl" alignItems="center" justifyContent="center">
+            <Box backgroundColor="lightBlack" height={2} width={200} />
+          </Box>
+          <Box alignItems="center">
+            <Text variant="webTitle">Expand your reading.</Text>
+            <Text variant="webTitle">Expand your mind.</Text>
+          </Box>
+          <Box alignItems="center" paddingTop="xl">
+            <StartButton onPress={() => {}} />
+          </Box>
+        </Box>
+        <Footer />
       </Box>
     );
   }

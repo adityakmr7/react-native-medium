@@ -26,5 +26,9 @@ const StartButton = ({ onPress, label, width, height }: StartButtonProps) => {
     </Box>
   );
 };
-
+StartButton.defaultProps = {
+  label: "Get Started",
+  width: 300,
+  height: 60,
+};
 export default StartButton;

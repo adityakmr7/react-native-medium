@@ -1,6 +1,7 @@
 import React from "react";
 import { RectButton } from "react-native-gesture-handler";
 import { Box, Text } from "../../../components";
+import CircleButton from "./CircleButton";
 
 interface RoundedButtonProps {
   label: string;
@@ -22,20 +23,7 @@ const RoundedButton = ({ label, icon, onPress }: RoundedButtonProps) => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box style={{ padding: 5 }}>
-          <Box
-            style={{
-              borderRadius: 50,
-              paddingHorizontal: 12,
-            }}
-            backgroundColor="lightBlack"
-          >
-            <Text color="white" fontSize={30}>
-              {icon}
-            </Text>
-          </Box>
-        </Box>
-
+        <CircleButton {...{ icon }} color="lightBlack" />
         <Box paddingHorizontal="s">
           <Text variant="button">{label}</Text>
         </Box>

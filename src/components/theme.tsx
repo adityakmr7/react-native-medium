@@ -1,8 +1,13 @@
-import { createBox, createText, createTheme } from "@shopify/restyle";
-
+import {
+  createBox,
+  createText,
+  useTheme as useReTheme,
+} from "@shopify/restyle";
+import { TextStyle, ViewStyle } from "react-native";
 export const palette = {};
+type NamedStyles<T> = { [P in keyof T]: ViewStyle | TextStyle };
 
-export const theme = createTheme({
+export const theme = {
   spacing: {
     s: 8,
     m: 16,
@@ -22,13 +27,20 @@ export const theme = createTheme({
     greenish: "#029E74",
     lightGreen: "#f0fff9",
     gray: "#37474F",
+    black: "#000000",
+    footerText: "#E6E6E6",
   },
   breakpoints: {},
   textVariants: {
     webTitle: {
       fontSize: 80,
       fontWeight: "bold",
-      colors: "lightBlack",
+      color: "lightBlack",
+    },
+    footer: {
+      fontSize: 18,
+
+      color: "white",
     },
     title: {
       fontSize: 30,
@@ -55,9 +67,17 @@ export const theme = createTheme({
     },
   },
   cardVariants: {},
-});
+};
 
-type Theme = typeof theme;
+export type Theme = typeof theme;
 
 export const Box = createBox<Theme>();
 export const Text = createText<Theme>();
+export const useTheme = () => useReTheme<Theme>();
+
+export const makeStyles = <T extends NamedStyles<T>>(
+  styles: (theme: Theme) => T
+) => () => {
+  const currentTheme = useTheme();
+  return styles(currentTheme);
+};
